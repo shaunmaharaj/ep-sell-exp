@@ -1,0 +1,81 @@
+#kc-header {
+    height: 60px;
+    display: flex;
+    width: 100%;
+    padding-right: 10px;
+    background-color: #040060;
+}
+
+#kc-header-wrapper {
+    background-image: url(../img/Company-Logo-v2.png);
+    background-repeat: no-repeat;
+    color: transparent;
+    margin: 15px;
+}
+
+.login-pf body {
+    background-color: #000000 !important;
+    background: #000000 !important;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.login-pf-page .login-pf-header h1,
+.login-pf-page .login-pf-header p {
+    font-size: 24px;
+    text-align: left !important;
+}
+
+.login-pf-page .login-pf-header {
+    border-bottom: 1px solid #e9ecef;
+}
+
+.control-label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-control {
+    border-radius: 4px;
+}
+
+.login-pf-page .btn-primary {
+    min-height: 40px;
+    min-width: 100px;
+    margin-right: 10px;
+    border: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 4px 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    outline: 0;
+    transition: 0.1s;
+    background-color: #fff;
+    border: 1px solid #40b1f3;
+    color: #40b1f3;
+    cursor: pointer;
+    border: 0;
+    color: #fff;
+    background-color: #40b1f3;
+    background-image: none;
+}
+
+@media (max-width: 767px) {
+    .login-pf {
+        height: 100%;
+    }
+
+    body {
+        height: 92%;
+    }
+
+    .login-pf-page {
+        height: 98%;
+    }
+
+    .login-pf-page .card-pf{
+        height: 100%;
+        max-width: none;
+        margin-top: 20px;
+    }
+}

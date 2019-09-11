@@ -1,0 +1,34 @@
+{
+  "name": "ep-store-monorepo",
+  "private": true,
+  "version": "3.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "app",
+      "components",
+      "cortexjs",
+      "storybook"
+    ],
+    "nohoist": [
+      "**/webpack-dev-server",
+      "**/babel-loader"
+    ]
+  },
+  "dependencies": {
+    "aws-amplify": "^1.1.29",
+    "aws-amplify-react": "^2.3.9",
+    "core-js": "^2.6.9",
+    "lerna": "^3.14.1",
+    "react-simple-chatbot": "^0.6.1",
+    "styled-components": "^4.3.2"
+  },
+  "scripts": {
+    "start": " cd app && yarn start",
+    "build": " cd app && yarn build",
+    "test": " cd app && yarn test",
+    "storybook": " cd storybook && yarn storybook",
+    "deploy": "cd app && yarn deploy"
+  }
+}
