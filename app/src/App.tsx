@@ -159,8 +159,6 @@ const Root = (props) => {
         ))}
       </Switch>
     </div>,
-    <AppFooterMain key="app-footer" appFooterLinks={appFooterLinks} />,
-    <ChatComponent key="chat-component" />,
   ];
 };
 
