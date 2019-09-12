@@ -225,17 +225,7 @@ class AppHeaderMain extends React.Component<AppHeaderMainProps, AppHeaderMainSta
         <div className={`main-container container ${isInStandaloneMode ? 'in-standalone' : ''}`}>
 
           <div className="logo-container">
-            <Link to={appHeaderLinks.mainPage} className="logo">
-              <img
-                className="logo-image"
-                alt="Header logo"
-                src={Config.siteImagesUrl.replace('%fileName%', headerLogoFileName)}
-                onError={(e) => {
-                  const element: any = e.target;
-                  element.src = headerLogo;
-                }}
-              />
-            </Link>
+            <Link to={appHeaderLinks.mainPage} className="logo" />
           </div>
 
           <div className="central-container">

@@ -47,15 +47,28 @@
     }
 
     .logo-container {
-      padding-top: 4px;
+      padding-top: 20px;
 
       .logo {
         padding: 15px;
         margin-left: -15px;
         display: flex;
 
-        .logo-image {
-          height: 25px;
+        display: block;
+        width: 30px;
+        padding: 14px;
+        height: 32px;
+        background: #ffffff00 url(../../../app/src/images/header-icons/ep-logo.svg) no-repeat 0px;
+        background-position: center top;
+        line-height: 0;
+        font-size: 0;
+        background-size: cover;
+        position: relative;
+
+        .cart-link-counter {
+          right: 0;
+          left: unset;
+          transform: translate(25%, -25%);
         }
       }
     }
