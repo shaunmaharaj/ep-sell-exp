@@ -19,7 +19,6 @@
  *
  */
 
-import HomePage from './containers/HomePage';
 import CartPage from './containers/CartPage';
 import CategoryPage from './containers/CategoryPage';
 import CheckoutPage from './containers/CheckoutPage';
@@ -44,11 +43,12 @@ import ResetPasswordForm from './containers/ResetPasswordPage';
 import B2BMain from './containers/b2b/B2BMain';
 import Dashboard from './containers/b2b/Dashboard';
 import AccountMain from './containers/b2b/AccountMain';
+import B2BRedirect from './B2BRedirect';
 
 const router = [{
   path: '/',
   exact: true,
-  component: HomePage,
+  render: B2BRedirect,
 }, {
   path: '/mybag',
   component: CartPage,
