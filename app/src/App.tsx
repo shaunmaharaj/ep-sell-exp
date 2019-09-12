@@ -45,7 +45,7 @@ function redirectToProfilePage(keywords) {
 }
 
 function redirectToMainPage() {
-  window.location.href = '/';
+  window.location.href = '/b2b';
 }
 
 function handlePathName() {

@@ -59,7 +59,7 @@ class AppHeaderTop extends React.Component<AppHeaderTopProps> {
 
     return [
       <div key="AppHeaderTop" className={`top-header ${isMobileView ? 'mobile-view' : ''}`}>
-        <div className="top-container">
+        <div className="container top-container">
           <div className="locale-container">
             <AppHeaderLocaleMain onCurrencyChange={onCurrencyChange} onLocaleChange={onLocaleChange} />
           </div>

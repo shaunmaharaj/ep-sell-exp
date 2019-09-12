@@ -222,7 +222,7 @@ class AppHeaderMain extends React.Component<AppHeaderMainProps, AppHeaderMainSta
       <header key="app-header" className="app-header">
         <AppHeaderTop onCurrencyChange={onCurrencyChange} onLocaleChange={onLocaleChange} appHeaderTopLinks={appHeaderTopLinks} />
 
-        <div className={`main-container ${isInStandaloneMode ? 'in-standalone' : ''}`}>
+        <div className={`main-container container ${isInStandaloneMode ? 'in-standalone' : ''}`}>
 
           <div className="logo-container">
             <Link to={appHeaderLinks.mainPage} className="logo">

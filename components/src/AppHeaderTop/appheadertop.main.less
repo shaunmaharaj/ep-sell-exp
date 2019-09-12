@@ -1,48 +1,47 @@
 @import './../../../app/src/theme/common.less';
+@topHeaderHeight: 41px;
+@topHeaderFontSize: 13px;
 
 .top-header {
   display: none;
+  background-color: @mainBackgroundColor;
 }
 
 @media screen and (min-width: @tabletWidth) {
   .top-header {
-    position: relative;
-    width: 100%;
-    height: 45px;
-    border-bottom: fade(@mainColor, 70%) solid 1px;
+    height: @topHeaderHeight;
     display: block;
 
     .top-container {
       height: 100%;
-      background-color: @mainColor;
+      position: relative;
     }
     .locale-container {
-      position: absolute;
-      margin-top: 12px;
-      margin-left: 35px;
-        button{
-          opacity: 0.7;
-          font-size: 12px;
+      display: inline-block;
+        button {
+          height: @topHeaderHeight;
+          font-size: @topHeaderFontSize;
+          padding-left: 0;
         }
     }
     .top-container-menu {
-      position: absolute;
-      right: 30px;
-      top: 12px;
+      display: inline-block;
+      float: right;
+      line-height: @topHeaderHeight;
 
       ul {
         overflow: hidden;
         white-space: nowrap;
+        margin: 0;
       }
 
       li {
-        font-size: 12px;
-        margin: 0 11px;
+        font-size: @topHeaderFontSize;
+        margin-left: 24px;
         display: inline-block;
 
         a {
-          opacity:0.7;
-          color: @mainNavigationTextColor;
+          color: @mainTextColor;
           text-decoration: none;
         }
         :hover {

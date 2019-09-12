@@ -19,14 +19,19 @@
  *
  */
 
+import * as React from 'react';
+import { Redirect } from 'react-router';
+import queryString from 'query-string';
+import * as Config from './ep.config.json';
 
-@chatBackground: #f5f8fb;
-@chatFontFamily: Helvetica Neue;
-@chatHeaderBgColor: #0033CC;
-@chatHeaderFontColor: #fff;
-@chatHeaderFontSize: 15px;
-@chatBotBubbleColor: #0033CC;
-@chatBotFontColor: #fff;
-@chatUserBubbleColor: #fff;
-@chatUserFontColor: #4a4a4a;
+function B2BRedirect() {
+  const isLoggedIn = localStorage.getItem(`${Config.cortexApi.scope}_oAuthRole`) === 'REGISTERED';
+  const authParams = queryString.parse(window.location.search);
+  const keycloakLoginRedirectUrl = `${Config.b2b.keycloak.loginRedirectUrl}?client_id=${Config.b2b.keycloak.client_id}&response_type=code&scope=openid&redirect_uri=${encodeURIComponent(Config.b2b.keycloak.callbackUrl)}`;
+  if (!isLoggedIn && !authParams.code) {
+    window.location.href = keycloakLoginRedirectUrl;
+  }
+  return (<Redirect to="/b2b" />);
+}
 
+export default B2BRedirect;
