@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "resolveJsonModule": true,
+    "jsx": "react",
+    "strict": false,
+    "esModuleInterop": true
+  },
+  "files": [
+    "custom_typings/image-loader.d.ts"
+  ]
+}
