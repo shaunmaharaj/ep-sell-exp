@@ -320,7 +320,7 @@ class AppHeaderMain extends React.Component<AppHeaderMainProps, AppHeaderMainSta
           <div className="search-container">
             <AppHeaderSearchMain isMobileView isFocused={isSearchFocused} onSearchPage={onSearchPage} />
           </div>
-          <div className="mobile-locale-container">
+          <div className="mobile-locale-container container">
             <AppHeaderLocaleMain isMobileView onCurrencyChange={onCurrencyChange} onLocaleChange={onLocaleChange} />
           </div>
 

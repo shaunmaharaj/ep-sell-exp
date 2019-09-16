@@ -146,13 +146,7 @@ class AppModalCartSelectMain extends React.Component<AppModalCartSelectMainProps
         return null;
       });
     }
-    return (
-      <div className="radio division-message">
-        <label htmlFor="cart-selection-option">
-          <span className="label-text">{intl.get('no-divisions-found')}</span>
-        </label>
-      </div>
-    );
+    return null;
   }
 
   render() {
@@ -161,7 +155,7 @@ class AppModalCartSelectMain extends React.Component<AppModalCartSelectMainProps
     const selectedCartName = orgAuthServiceData && orgAuthServiceData._element ? orgAuthServiceData._element[selectedCart].name : '';
 
     return (
-      <Modal open={openModal} onClose={handleModalClose} classNames={{ modal: 'cart-selection-modal-content' }}>
+      <Modal open={openModal} onClose={handleModalClose} showCloseIcon={false} classNames={{ modal: 'cart-selection-modal-content' }}>
         <div className="modal-lg">
           <div className="modal-content" id="simplemodal-container">
             <div className="modal-header">
@@ -172,15 +166,34 @@ class AppModalCartSelectMain extends React.Component<AppModalCartSelectMainProps
                 }
               </h2>
             </div>
-
             <div className="modal-body">
               <div id="cart_selection_modal_form">
+                { orgAuthServiceData && !orgAuthServiceData._element
+                  ? ''
+                  : (<p className="carts-selection-message">{intl.get('change-carts-support-message')}</p>)
+                }
                 <div className="carts-selection-region">
-                  {this.renderCartOption()}
+                  { orgAuthServiceData && !orgAuthServiceData._element
+                    ? (
+                      <div className="division-message">
+                        <span className="label-text">{intl.get('no-divisions-found')}</span>
+                      </div>
+                    )
+                    : this.renderCartOption()
+
+                  }
                 </div>
                 <div className="action-row">
                   <div className="form-input btn-container">
-                    <button onClick={(orgAuthServiceData && !orgAuthServiceData._element) ? handleModalClose : this.continueCart} className="ep-btn primary wide" id="continue_with_cart_button" data-cmd="continue" data-toggle="collapse" data-target=".navbar-collapse" type="submit">
+                    {orgAuthServiceData && !orgAuthServiceData._element
+                      ? ''
+                      : (
+                        <button onClick={handleModalClose} className="ep-btn outline transparent" id="continue_with_cart_button" data-cmd="continue" data-toggle="collapse" data-target=".navbar-collapse" type="submit">
+                          {intl.get('cancel')}
+                        </button>
+                      )
+                    }
+                    <button onClick={(orgAuthServiceData && !orgAuthServiceData._element) ? handleModalClose : this.continueCart} className="ep-btn outline" id="continue_with_cart_button" data-cmd="continue" data-toggle="collapse" data-target=".navbar-collapse" type="submit">
                       {(orgAuthServiceData && !orgAuthServiceData._element)
                         ? (intl.get('change-carts-ok'))
                         : (`${intl.get('continue-with')} ${selectedCartName}`)
