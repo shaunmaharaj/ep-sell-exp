@@ -21,7 +21,7 @@
 
  @import './icon-fonts.less';
  @import './common.less';
- 
+
  html {
    height: 100%;
    font-family: sans-serif;
@@ -30,7 +30,7 @@
    font-size: 62.5%;
    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
  }
- 
+
  body {
    height: 100%;
    font-family: 'Montserrat', sans-serif;
@@ -45,11 +45,11 @@
    padding-top: constant(safe-area-inset-top); /* iOS 11.0 */
    padding-top: env(safe-area-inset-top); /* iOS 11.2 */
  }
- 
+
  .h1, h1 {
    font-size: 2.5rem;
  }
- 
+
  #root {
    position: relative;
    min-height: 100%;
@@ -57,44 +57,44 @@
    flex-direction: column;
    background-color: @mainBackgroundColor;
  }
- 
+
  .is-hidden {
    display: none;
  }
- 
+
  .app-main {
    padding-bottom: 64px;
  }
- 
+
  // Fix for Bootstrap issue with dropdowns outside of navbars
  // https://github.com/twbs/bootstrap/issues/23553
  .dropdown-menu-right {
    right: 0;
    left: auto;
  }
- 
+
  .dropdown-menu {
    font-size: 1.3rem !important;
  }
- 
+
  .dropdown-item {
    padding-top: 5px;
    padding-bottom: 5px;
- 
+
    &:active {
      background-color: transparent;
    }
  }
- 
+
  .dropdown-header {
    font-size: 1.3rem !important;
  }
- 
+
  @keyframes spin {
    0% { transform: rotate(0deg); }
    100% { transform: rotate(360deg); }
  }
- 
+
  .loader {
    border: 16px solid @firstComplimentBackground;
    border-top: 16px solid @secondComplimentColor;
@@ -105,7 +105,7 @@
    margin: 0 auto;
    margin-top: 20px;
  }
- 
+
  .miniLoader {
    border: 10px solid @firstComplimentBackground;
    border-top: 10px solid @secondComplimentColor;
@@ -116,7 +116,7 @@
    margin: 0 auto;
    margin-top: 10px;
  }
- 
+
  .featured {
    position: absolute;
    display: inline-block;
@@ -133,30 +133,30 @@
    color: @mainBackgroundColor;
    z-index: 2;
  }
- 
+
  .container-3 {
    width: 1070px;
    padding-right: 15px;
    padding-left: 15px;
    margin-right: auto;
    margin-left: auto;
- 
+
    @media (max-width: @mobileWidth - 1px) {
      width: 100%;
      text-align: center;
    }
- 
+
    @media (min-width: @mobileWidth) and (max-width: @tabletWidth - 1px) {
      width: 100%;
    }
  }
- 
+
  .view-title {
    padding-top: 20px;
    padding-bottom: 20px;
    font-weight: bold;
  }
- 
+
  .message-permission {
    display: flex;
    justify-content: center;
@@ -165,13 +165,13 @@
    max-width: 460px;
    background-color: @firstComplimentBackground;
    margin: 0 auto;
- 
+
    h2{
      color: @mainTextColor;
      margin: 10px 0;
    }
  }
- 
+
  .ep-btn {
    // width: 100%;
    min-height: 40px;
@@ -190,68 +190,94 @@
    border: 1px solid @firstComplimentColor;
    color: @firstComplimentColor;
    cursor: pointer;
- 
+
    &:hover {
      background-color: @firstComplimentColor;
      color: @mainBackgroundColor;
    }
- 
+
    &:focus {
      outline: 2px solid #007bff80;
    }
- 
+
    &:active {
      background-color: #0062cc;
    }
- 
+
    &:disabled {
      color: lighten(@firstComplimentColor, 25%);
      border-color: lighten(@firstComplimentColor, 25%);
      cursor: default;
- 
+
      &:hover {
        background-color: @mainBackgroundColor;
      }
- 
+
      &:focus, &:active {
        outline: none;
        background-color: @mainBackgroundColor;
      }
    }
- 
+
    &.primary {
      border: 0;
      color: @mainBackgroundColor;
      background-color: @firstComplimentColor;
- 
+
      &:focus {
        outline: 2px solid #007bff80;
      }
- 
+
      &:active {
        background-color: #0062cc;
      }
- 
+
      &:disabled {
        cursor: default;
        background-color: lighten(@firstComplimentColor, 25%);
        outline: 0;
      }
    }
- 
+
    &.wide {
      width: 280px;
- 
+
      @media (max-width: @mobileWidth) {
        width: 100%;
      }
    }
- 
+
    &.small {
      min-height: 30px;
    }
+
+   &.outline {
+     height: 50px;
+     border: 1px solid @mainColor;
+     border-radius: 24px;
+     background-color: @mainBackgroundColor;
+     color: @mainColor;
+     font-size: 13px;
+     font-weight: 600;
+     line-height: 18px;
+     padding: 0 37px;
+     box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06), 0 1px 0 0 rgba(22,29,37,0.1);
+
+     &:active, &:focus {
+       outline: none;
+     }
+     &:active {
+       background-color: @mainColor;
+       color: @mainBackgroundColor;
+     }
+
+     &.transparent {
+       border: none;
+       box-shadow: none;
+     }
+   }
  }
- 
+
  .style-checkbox {
    display: none;
    +label {
@@ -276,13 +302,13 @@
        left: 0;
      }
    }
- 
+
    &:disabled {
      +label {
        opacity: 0.4;
      }
    }
- 
+
    &:checked {
      +label {
        &:before {
@@ -304,8 +330,7 @@
      }
    }
  }
- 
+
  .styles_modal__gNwvD {
    margin: auto;
  }
- 

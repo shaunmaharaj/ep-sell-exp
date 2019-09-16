@@ -72,16 +72,16 @@
     .dashboard-link,
     .cart-select-btn,
     .wishlist-link {
-      padding: 5px 0px;
+      padding: 5px 0;
       text-align: left;
       border: none;
       width: 100%;
       background-color: transparent;
       color: @mainTextColor;
       font-size: 14px;
-      font-weight: 900;
       line-height: 19px;
       text-decoration: none;
+      font-weight: bold;
     }
 
     .profile-link,
@@ -89,12 +89,20 @@
     .dashboard-link,
     .wishlist-link {
       div {
-        padding: 5px 0px;
+        padding: 5px 0;
       }
     }
 
     .dropdown-item:hover {
       background-color: #e2e2e2;
+      .logout-link,
+      .profile-link,
+      .using-cart-link,
+      .dashboard-link,
+      .cart-select-btn,
+      .wishlist-link {
+        color: @mainColor;
+      }
     }
 
     .dropdown-item:active {
@@ -105,16 +113,17 @@
     .dropdown-menu {
       overflow: hidden;
       min-width: 145px;
-      border-radius: 8px;
-      padding-bottom: 0;
+      padding: 0;
+      border: 1px solid @secondBorderColor;
+      box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.12);
 
       .dropdown-item {
         height: 35px;
         vertical-align: middle;
+      }
 
-        .dropdown-header {
-          border-bottom: 1px solid #eee;
-        }
+      .dropdown-header {
+        padding: 0;
       }
 
       .dropdown-login-cart {
