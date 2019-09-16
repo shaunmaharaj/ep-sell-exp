@@ -99,7 +99,7 @@ const appFooterLinks = {
   shareInstagram: '/',
 };
 const appHeaderLinks = {
-  mainPage: '/',
+  mainPage: '/b2b',
   myBag: '/mybag',
 };
 const appHeaderLoginLinks = {

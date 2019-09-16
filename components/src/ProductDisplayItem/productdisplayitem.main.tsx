@@ -480,7 +480,7 @@ class ProductDisplayItemMain extends React.Component<ProductDisplayItemMainProps
           </span>
           <div className="guide" id={`${(Component.displayName === 'Color') ? 'product_display_item_sku_guide' : 'product_display_item_size_guide'}`} onChange={this.handleSkuSelection}>
             {Component.map(Element => (
-              <div key={Element._description[0]['display-name']} className={`select-wrap ${(Component.displayName === 'Color') ? 'color-wrap' : ''}`}>
+              <div key={Element._description[0]['display-name']} className="select-wrap">
                 <input
                   key={Element._description[0].name}
                   type="radio"
@@ -489,7 +489,7 @@ class ProductDisplayItemMain extends React.Component<ProductDisplayItemMainProps
                   value={(Element._selectaction) ? Element._selectaction[0].self.uri : ''}
                   defaultChecked={Element._description[0]['display-name'] === Component.defaultChousen || Element._selectaction[0].self.uri === selectionValue}
                 />
-                <label htmlFor={`selectorWeight_${Element._description[0]['display-name'].toLowerCase().replace(/ /g, '_')}${productData._code[0].code}`} style={{ background: Element._description[0]['display-name'] }}>
+                <label htmlFor={`selectorWeight_${Element._description[0]['display-name'].toLowerCase().replace(/ /g, '_')}${productData._code[0].code}`}>
                   {Element._description[0]['display-name']}
                 </label>
               </div>
@@ -579,11 +579,6 @@ class ProductDisplayItemMain extends React.Component<ProductDisplayItemMainProps
                   <h1 className="itemdetail-title" id={`category_item_title_${productData._code[0].code}`}>
                     {productData._definition[0]['display-name']}
                   </h1>
-                  {(Config.b2b.enable) && (
-                    <h4 className="itemdetail-title-sku" id={`category_item_sku_${productData._code[0].code}`}>
-                      {productData._code[0].code}
-                    </h4>
-                  )}
                 </div>
               </div>
               <div className="itemdetail-price-container itemdetail-price-wrap" data-region="itemDetailPriceRegion" style={{ display: 'block' }}>
@@ -594,12 +589,12 @@ class ProductDisplayItemMain extends React.Component<ProductDisplayItemMainProps
                         listPrice !== itemPrice
                           ? (
                             <li className="itemdetail-purchase-price">
-                              <h1 className="itemdetail-purchase-price-value price-sale" id={`category_item_price_${productData._code[0].code}`}>
-                                {itemPrice}
-                              </h1>
                               <span className="itemdetail-list-price-value" data-region="itemListPriceRegion" id={`category_item_list_price_${productData._code[0].code}`}>
                                 {listPrice}
                               </span>
+                              <h1 className="itemdetail-purchase-price-value price-sale" id={`category_item_price_${productData._code[0].code}`}>
+                                {itemPrice}
+                              </h1>
                             </li>
                           )
                           : (
@@ -642,12 +637,13 @@ class ProductDisplayItemMain extends React.Component<ProductDisplayItemMainProps
                   </li>
                 </ul>
               </div>
+              <div className="itemdetail-separator" />
               <div className="itemdetail-addtocart" data-region="itemDetailAddToCartRegion" style={{ display: 'block' }}>
                 <div>
                   <form className="itemdetail-addtocart-form form-horizontal" onSubmit={event => this.addToCart(event)}>
                     {this.renderConfiguration()}
                     {this.renderSkuSelection()}
-                    <div className="form-group">
+                    <div className="form-group quantity">
                       <label htmlFor="product_display_item_quantity_label" className="control-label">
                         {intl.get('quantity')}
                       </label>
@@ -734,6 +730,7 @@ class ProductDisplayItemMain extends React.Component<ProductDisplayItemMainProps
                   />
                 </div>
               </div>
+              <div className="itemdetail-separator" />
               <PowerReview productData={productData} />
               <div className="itemdetail-tabs-wrap">
                 {(Config.PowerReviews.enable) ? (
@@ -770,6 +767,7 @@ class ProductDisplayItemMain extends React.Component<ProductDisplayItemMainProps
                   </div>
                 </div>
               </div>
+              <div className="itemdetail-separator" />
             </div>
           </div>
           <BundleConstituentsDisplayMain productData={productData} itemDetailLink={itemDetailLink} />

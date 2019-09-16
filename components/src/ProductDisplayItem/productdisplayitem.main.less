@@ -20,6 +20,7 @@
  */
 
 @import './../../../app/src/theme/common.less';
+@import './../../../app/src/theme/sell-exp.less';
 
 .itemdetail-component {
   line-height: 2.14;
@@ -53,6 +54,7 @@
         max-height: 600px;
         width: 100%;
         object-fit: cover;
+        border: 1px solid @thirdBorderColor;
       }
     }
 
@@ -67,14 +69,12 @@
 
   .btn-itemdetail-addtocart.wide,
   .btn-itemdetail-addtowishlist.wide {
-    text-transform: capitalize;
-    font-size: 14px;
-    width: 100%;
+    .sell-exp-button();
   }
 
   .itemdetail-details {
     vertical-align: top;
-    padding: 30px 10px 0 20px;
+    padding: 0 10px 0 20px;
     display: inline-block;
     width: 50%;
     font-size: 12px;
@@ -82,53 +82,58 @@
     text-align: left;
 
     .itemdetail-price-wrap{
-      margin-top: 10px;
+      margin-top: 16px;
     }
 
     .itemdetail-title,
     .itemdetail-price-container {
-      font-weight: 600;
+      color: @mainTextColor;
+      // font-family: Gilroy, sans-serif;
+      font-size: 2.8rem;
+      font-weight: bold;
       line-height: 1.25;
 
-      .itemdetail-purchase-price-value{
+      .itemdetail-purchase-price-value {
         font-weight: bold;
         display: inline-block;
+        font-size: inherit;
         vertical-align: middle;
         margin-bottom: 0;
       }
 
       .price-sale {
-        color: #E00645;
+        color: #E02020;
+        margin-left: 16px;
       }
 
-      .itemdetail-list-price-value{
-        color: gray;
+      .itemdetail-list-price-value {
         text-decoration: line-through;
         vertical-align: middle;
-        margin-left: 10px;
-        font-weight: normal;
+        color: #777777;
+        font-weight: 500;
       }
+    }
+
+    .itemdetail-separator {
+      margin: 15px 0;
+      border-bottom: 1px solid #CCCCC0;
     }
 
     .itemdetail-addtocart {
       vertical-align: top;
       display: inline-block;
 
-      .selector-title{
-        color: #8a8a8a;
+      .selector-title, .control-label{
         font-weight: 500;
         text-transform: uppercase;
+        color: @mainTextColor;
+        font-size: 14px;
+        line-height: 19px;
+        margin-bottom: 15px;
       }
 
       .form-group {
         margin-bottom: 15px;
-
-        .control-label {
-          margin-top: .75rem;
-          color: #8a8a8a;
-          font-weight: 500;
-          text-transform: uppercase;
-        }
 
         .form-content {
           float: right;
@@ -190,11 +195,15 @@
             .form-control-quantity {
               border: none;
               display: block;
-              width: 50px;
-              height: 34px;
-              font-size: 16px;
-              text-align: center;
               margin: 0 auto;
+              height: 32px;
+              width: 30px;
+              color: #777777;
+              font-family: Avenir, sans-serif;
+              font-size: 14px;
+              font-weight: 900;
+              line-height: 32px;
+              text-align: center;
             }
 
             input[type=number]::-webkit-outer-spin-button,
@@ -208,11 +217,14 @@
             }
           }
         }
+
+        &.quantity {
+          width: 100px;
+        }
       }
     }
 
     .itemdetail-attribute:nth-of-type(1) {
-      border-bottom: solid 1px @mainBorderColor;
       padding-bottom: 25px;
     }
 
@@ -272,15 +284,16 @@
     .itemdetail-availability-state {
       label {
         background-color: @mainBackgroundColor;
-        border-radius: 10px;
-        border: solid @mainColor;
+        border-radius: 15px;
+        border: solid @firstBorderColor;
         border-width: 1px 1px;
-        color: @mainColor;
-        padding: 3px 10px;
+        color: @firstComplimentTextColor;
+        padding: 5px 10px;
         font-size: 10px;
         text-transform: uppercase;
 
         .icon {
+          color: @sell-exp-green;
           margin-right: 6px;
         }
       }
@@ -371,27 +384,13 @@
       cursor: pointer;
     }
   }
-  .color-wrap{
-    input[type="radio"] {
-      + label {
-        background: gray;
-        width: 40px;
-        text-indent: -9999px;
-        border: 1px solid @mainBackgroundColor;
-      }
-      &:checked {
-        +label {
-          border-color: @mainBackgroundColor;
-        }
-      }
-    }
-  }
 
   input[type="radio"] {
     display: none;
 
     +label {
-      color: gray;
+      border-radius: 20px;
+      color: @mainTextColor;
       padding: 10px 15px;
       box-sizing: border-box;
       position: relative;
@@ -406,8 +405,8 @@
     &:checked {
       +label {
         color: @mainTextColor;
-        border-color: @mainTextColor;
-        box-shadow: 0 0 0 1px black;
+        font-weight: bold;
+        border-color: @sell-exp-green;
         z-index: 1;
       }
     }

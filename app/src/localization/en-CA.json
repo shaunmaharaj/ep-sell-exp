@@ -340,5 +340,6 @@
   "low-stock": "Low Stock",
   "quote-id": "Quote ID",
   "request-from": "Request From",
-  "submitted": "Submitted"
+  "submitted": "Submitted",
+  "filter-by": "Filter By"
 }
