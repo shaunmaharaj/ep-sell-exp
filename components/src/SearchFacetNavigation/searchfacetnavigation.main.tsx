@@ -171,24 +171,21 @@ class SearchFacetNavigationMain extends React.Component<SearchFacetNavigationMai
       const chosenFacets = facetModel._facets[0]._element.filter(el => el._facetselector[0]._chosen);
       return (
         <div className="product-list-facet-navigation-component">
-          <div className="col-xs-12 col-sm-12">
-            <h1>{intl.get('filter-by')}</h1>
-            <div className="filter-btn-wrap">
-              <button type="button" className={`filter-btn ${chosenFacets.length > 0 ? 'filtered' : ''}`} onClick={this.handleOpenFilterMenu}>
+          <div className="filter-btn-wrap">
+            <button type="button" className={`filter-btn ${chosenFacets.length > 0 ? 'filtered' : ''}`} onClick={this.handleOpenFilterMenu}>
+              {intl.get('filter')}
+              <span className="check-icon" />
+            </button>
+          </div>
+          <div className={`${showFilterMobileMenu ? 'show-filter-mobile-menu' : ''} card-stack`} id="accordion">
+            <div className="close-filter-mobile-menu-wrap">
+              <h2>
                 {intl.get('filter')}
-                <span className="check-icon" />
-              </button>
+              </h2>
+              <button type="button" className="close-filter-mobile-menu" onClick={this.handleCloseFilterMenu} />
             </div>
-            <div className={`${showFilterMobileMenu ? 'show-filter-mobile-menu' : ''} card-stack`} id="accordion">
-              <div className="close-filter-mobile-menu-wrap">
-                <h2>
-                  {intl.get('filter')}
-                </h2>
-                <button type="button" className="close-filter-mobile-menu" onClick={this.handleCloseFilterMenu} />
-              </div>
-              <div className="facets-container">
-                {this.renderFacets()}
-              </div>
+            <div className="facets-container">
+              {this.renderFacets()}
             </div>
           </div>
         </div>

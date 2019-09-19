@@ -20,7 +20,6 @@
  */
 
 @import './../../../app/src/theme/common.less';
-@import './../../../app/src/theme/sell-exp.less';
 
 .itemdetail-component {
   line-height: 2.14;
@@ -69,7 +68,7 @@
 
   .btn-itemdetail-addtocart.wide,
   .btn-itemdetail-addtowishlist.wide {
-    .sell-exp-button();
+    width: 100%;
   }
 
   .itemdetail-details {
@@ -293,7 +292,7 @@
         text-transform: uppercase;
 
         .icon {
-          color: @sell-exp-green;
+          color: @firstAccentColor;
           margin-right: 6px;
         }
       }
@@ -406,7 +405,7 @@
       +label {
         color: @mainTextColor;
         font-weight: bold;
-        border-color: @sell-exp-green;
+        border-color: @firstAccentColor;
         z-index: 1;
       }
     }

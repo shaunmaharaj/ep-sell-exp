@@ -665,7 +665,7 @@ class ProductDisplayItemMain extends React.Component<ProductDisplayItemMainProps
                     <div className="form-group-submit">
                       <div className="form-content form-content-submit col-sm-offset-4">
                         <button
-                          className="ep-btn primary wide btn-itemdetail-addtocart"
+                          className="ep-btn outline wide btn-itemdetail-addtocart"
                           disabled={!availability || !productData._addtocartform}
                           id="product_display_item_add_to_cart_button"
                           type="submit"
@@ -686,7 +686,7 @@ class ProductDisplayItemMain extends React.Component<ProductDisplayItemMainProps
                         <div className="form-content form-content-submit col-sm-offset-4">
                           <button
                             onClick={this.addToWishList}
-                            className="ep-btn wide btn-itemdetail-addtowishlist"
+                            className="ep-btn outline wide btn-itemdetail-addtowishlist"
                             disabled={!availability || !productData._addtowishlistform}
                             id="product_display_item_add_to_wish_list_button"
                             type="submit"

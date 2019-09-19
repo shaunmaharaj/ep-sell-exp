@@ -253,7 +253,7 @@ class CategoryItemsMain extends React.Component<CategoryItemsMainProps, Category
     noProducts = !products || !products._element || !products.pagination;
 
     return (
-      <div className="category-items-container container-3">
+      <div className="category-items-container container">
         <div data-region="categoryTitleRegion">
           {(() => {
             if (isLoading) {
@@ -269,7 +269,7 @@ class CategoryItemsMain extends React.Component<CategoryItemsMainProps, Category
             }
 
             return (
-              <div>
+              <div className="category-items-wrapper">
                 <div className="menu-history">
                   {categoryModelParentDisplayName}
                   {categoryModelParentDisplayName && (
@@ -286,7 +286,7 @@ class CategoryItemsMain extends React.Component<CategoryItemsMainProps, Category
                 <div className="products-container">
                   <FeaturedProducts productData={featuredOffers} itemDetailLink={productLinks.itemDetail} />
                   <SortProductMenu handleSortSelection={this.handleSortSelection} categoryModel={categoryModel} />
-                  <ProductListPagination paginationDataProps={products} titleString={categoryModelIdString} isTop productListPaginationLinks={productLinks} />
+                  {/* <ProductListPagination paginationDataProps={products} titleString={categoryModelIdString} isTop productListPaginationLinks={productLinks} /> */}
                   <div className={`${loadSortedProduct ? 'loading-product' : ''}`}>
                     <div className={`${loadSortedProduct ? 'sort-product-loader' : ''}`} />
                     <ProductListMain productData={productList} productListLinks={productLinks} />

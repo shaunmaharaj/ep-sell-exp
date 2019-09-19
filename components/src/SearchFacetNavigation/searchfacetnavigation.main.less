@@ -22,45 +22,47 @@
 @import './../../../app/src/theme/common.less';
 
 .product-list-facet-navigation-component {
-  float: left;
   display: table;
-  width: 25%;
   padding-bottom: 30px;
 
   .card-stack {
-    margin-top: 11px;
 
     .card {
       border-radius: 0;
-      margin-top: -1px;
+      margin-top: 20px;
+      border: none;
+      &:first-child {
+        margin: 0;
+      }
+
+      .card-header {
+        background-color: @mainBackgroundColor;
+        border: none;
+      }
 
       .card-title {
+        margin: 0;
         .facet {
-          color: #40B1F3;
-          font-weight: 500;
+          color: @mainTextColor;
+          font-size: 14px;
+          text-transform: uppercase;
           display: inline-block;
           width: 100%;
-          .glyphicon {
-            display: inline-block;
-            height: 12px;
-            width: 16px;
-            background: url('../../../app/src/images/header-icons/baseline-filter_list-24px.svg') no-repeat center center;
-            margin-right:10px;
-          }
 
           &:hover {
             text-decoration: none;
-            color: @firstComplimentColor;
+            color: @mainColor;
             cursor: pointer;
           }
         }
       }
 
       .facet-value {
-        padding-left: 12.5px;
+        padding: 8px 10px;
+        border:none;
 
         button {
-          color: #777777;
+          color: @mainTextColor;
           display: inline-block;
           vertical-align: middle;
           position: relative;
