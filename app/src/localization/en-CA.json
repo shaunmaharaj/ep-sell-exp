@@ -329,5 +329,14 @@
   "sales": "Sales",
   "account-revenue": "Account Revenue",
   "last-7-days": "Last 7 days",
-  "last-30-days": "Last 30 days"
+  "last-30-days": "Last 30 days",
+  "top-products": "Top Products",
+  "units-sold": "Units Sold",
+  "sku": "SKU",
+  "stock": "Stock",
+  "b2b-page": "Page",
+  "low-stock": "Low Stock",
+  "quote-id": "Quote ID",
+  "request-from": "Request From",
+  "submitted": "Submitted"
 }

@@ -98,8 +98,38 @@
       }
     }
   }
-  .accounts {
+  .quotes {
     margin-bottom: 100px;
+    .quotes-table {
+      .mobile-table-title {
+        display: none;
+      }
+      @media (max-width: @mobileWidth) {
+        display: block;
+        thead, tbody, th, td {
+          display: block;
+        }
+        tr {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          padding: 5px 0;
+        }
+        td.quote-request-from {
+          grid-row: ~"2 / 3";
+          grid-column: ~"1 / 2";
+        }
+        .mobile-table-title {
+          display: inline;
+        }
+        th.quote-request-from, th.quote-status {
+          display: none;
+        }
+
+      }
+    }
+  }
+  .accounts, .quotes {
+    margin-bottom: 26px;
     .section-header {
       align-items: center;
     }
@@ -117,6 +147,8 @@
         }
       }
     }
+  }
+  .accounts {
     .section-content {
       .accounts-table {
         td.name {
@@ -126,6 +158,50 @@
           position: relative;
           width: 20px;
         }
+      }
+    }
+  }
+  .top-products {
+    margin-bottom: 26px;
+    .top-products-table {
+      .mobile-table-title {
+        display: none;
+      }
+      td.product-image {
+        img {
+          width: 30px;
+          height: 30px;
+          border: 1px solid #979797;
+        }
+      }
+      td.product-stock {
+        padding-left: 10px;
+      }
+      @media (max-width: @mobileWidth) {
+        display: block;
+        thead, tbody, th, td {
+          display: block;
+        }
+        tr {
+          display: grid;
+          grid-template-columns: 1fr 1fr 80px;
+          padding: 5px 0;
+        }
+        td.product-sku {
+          grid-row: ~"2 / 3";
+          grid-column: ~"1 / 2";
+        }
+        td.product-stock {
+          grid-row: ~"1 / 3";
+          grid-column: ~"3 / 4";
+        }
+        .mobile-table-title {
+          display: inline;
+        }
+        th.product-sku, th.product-stock {
+          display: none;
+        }
+
       }
     }
   }
@@ -157,7 +233,6 @@
       th.date, th.order-total {
         display: none;
       }
-
     }
   }
   .accounts-table {
@@ -246,7 +321,7 @@
       }
     }
   }
-  .accounts-search {
+  .accounts-search, .quotes-search {
     position: relative;
     margin-bottom: 10px;
     input {
@@ -318,5 +393,87 @@
         background-size: cover;
       }
     }
+  }
+  .pagination-container {
+    display: flex;
+    align-items: center;
+    padding: 20px 20px 0 20px;
+
+    .b2b-pagination {
+      margin-left: auto;
+      margin-right: 20px;
+      display: inline-block;
+
+      .page-count, .items-count {
+        line-height: 36px;
+        vertical-align: top;
+        display: inline-block;
+        height: 36px;
+        color: #777777;
+        font-size: 12px;
+      }
+      .items-count {
+       margin-right: 20px;
+      }
+      .page-count {
+        margin: 0 20px;
+      }
+      .padination-previous, .pagination-next {
+        display: inline-block;
+        background-color: @mainBackgroundColor;
+        width: 36px;
+        height: 36px;
+        border: 1px solid @secondBorderColor;
+        border-radius: 50%;
+        position: relative;
+        &:before {
+          @icon-size: 8px;
+          content: ' ';
+          border-bottom: 2px solid @mainColor;
+          border-left: 2px solid @mainColor;
+          background-size: @icon-size;
+          width: @icon-size;
+          height: @icon-size;
+          position: absolute;
+          top: 13px;
+        }
+        &:hover {
+          background-color: @mainColor;
+          &:before {
+            border-color: @mainBackgroundColor;
+          }
+        }
+        &:focus {
+          outline: none;
+        }
+        &:disabled {
+          border-color: @secondComplimentBackground;
+          background-color: @secondComplimentBackground;
+          &:before {
+            border-color: @firstBorderColor;
+          }
+        }
+      }
+      .pagination-next {
+        &:before {
+          transform: rotate(-135deg);
+          right: 14px;
+        }
+      }
+      .padination-previous {
+        &:before {
+          transform: rotate(45deg);
+          left: 14px;
+        }
+      }
+    }
+
+    @media (max-width: @mobileWidth - 1px) {
+      display: none;
+    }
+  }
+  .b2b-link {
+    display: inline-block;
+    text-decoration: none;
   }
 }

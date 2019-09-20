@@ -28,6 +28,7 @@ import { login } from '../../utils/AuthService';
 import userIcon from '../../images/header-icons/account-icon-blue.svg';
 import salesChart from '../../images/b2b-mock/sales.png';
 import accountRevenueChart from '../../images/b2b-mock/account-revenue.png';
+import imgMissingHorizontal from '../../images/img_missing_horizontal@2x.png';
 import Config from '../../ep.config.json';
 
 import './Dashboard.less';
@@ -37,7 +38,9 @@ interface DashboardState {
   defaultBillingAddress: any,
   defaultShippingAddress: any,
   recentOrders: any,
+  topProducts: any,
   accounts: any,
+  quotes: any,
   searchAccounts: string,
   isLoading: boolean,
   showSearchLoader: boolean,
@@ -65,10 +68,14 @@ const accountsZoomArray = [
 ];
 
 export default class Dashboard extends React.Component<{}, DashboardState> {
+  static isLoggedIn(config) {
+    return (localStorage.getItem(`${config.cortexApi.scope}_oAuthRole`) === 'REGISTERED');
+  }
+
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: true,
+      isLoading: Dashboard.isLoggedIn(Config),
       noSearchResults: false,
       showSearchLoader: false,
       defaultBillingAddress: {
@@ -117,11 +124,152 @@ export default class Dashboard extends React.Component<{}, DashboardState> {
           status: 'Processing',
         },
       ],
+      topProducts: [
+        {
+          sku: 381763330271,
+          unitsSold: 506,
+          stock: 'AVAILABLE',
+          name: 'AutoPilot',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/16796.png',
+        },
+        {
+          sku: 357737575679,
+          unitsSold: 443,
+          stock: 'AVAILABLE',
+          name: 'Interior Accent Lighting',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/34996.png',
+        },
+        {
+          sku: 392455606866,
+          unitsSold: 1669,
+          stock: 'LIMITED',
+          name: 'Spoiler',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/46009.png',
+        },
+        {
+          sku: 337368575087,
+          unitsSold: 821,
+          stock: 'OUT_OF_STOCK',
+          name: 'Fog Lights',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/36028.png',
+        },
+        {
+          sku: 343858186475,
+          unitsSold: 1557,
+          stock: 'AVAILABLE',
+          name: 'All Season Floor Mats',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/79321.png',
+        },
+        {
+          sku: 383304897193,
+          unitsSold: 1121,
+          stock: 'AVAILABLE',
+          name: 'Adjustable Suspension Kit',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/37942.png',
+        },
+        {
+          sku: 350921932045,
+          unitsSold: 1631,
+          stock: 'AVAILABLE',
+          name: 'Hood Panels',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/38186.png',
+        },
+        {
+          sku: 366651865967,
+          unitsSold: 1373,
+          stock: 'AVAILABLE',
+          name: 'M-Class 3.0 Battery Upgrade',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/94312.png',
+        },
+        {
+          sku: 342091349314,
+          unitsSold: 211,
+          stock: 'AVAILABLE',
+          name: 'Chrome Center Console Trip',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/19455.png',
+        },
+        {
+          sku: 352424340612,
+          unitsSold: 399,
+          stock: 'AVAILABLE',
+          name: 'Wheel Lock Set',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/21458.png',
+        },
+        {
+          sku: 352573925795,
+          unitsSold: 1840,
+          stock: 'AVAILABLE',
+          name: '407 Unlimited Use',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/13350.png',
+        },
+        {
+          sku: 386731979879,
+          unitsSold: 1240,
+          stock: 'AVAILABLE',
+          name: 'Emergency Road Kit',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/41654.png',
+        },
+        {
+          sku: 382106726564,
+          unitsSold: 1492,
+          stock: 'AVAILABLE',
+          name: 'XM Radio',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/97128.png',
+        },
+        {
+          sku: 337593514379,
+          unitsSold: 1958,
+          stock: 'AVAILABLE',
+          name: 'B10 SD Multi-purpose Van',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/40003.png',
+        },
+        {
+          sku: 377912830857,
+          unitsSold: 1639,
+          stock: 'OUT_OF_STOCK',
+          name: 'M-Class Sports Coupe',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/10008.png',
+        },
+      ],
       accounts: [],
       admins: [],
+      quotes: [
+        {
+          id: '118344715-9',
+          requestFrom: 'Youtags',
+          date: '19-Aug-2019',
+          status: 'Accepted',
+        },
+        {
+          id: '664035490-X',
+          requestFrom: 'Wikizz',
+          date: '31-Oct-2018',
+          status: 'Accepted',
+        },
+        {
+          id: '796998895-4',
+          requestFrom: 'Agimba',
+          date: '05-Dec-2018',
+          status: 'In Review',
+        },
+        {
+          id: '753193924-X',
+          requestFrom: 'Browsetype',
+          date: '09-Sep-2019',
+          status: 'Rejected',
+        },
+        {
+          id: '282511554-1',
+          requestFrom: 'BlogXS',
+          date: '16-Nov-2018',
+          status: 'Rejected',
+        },
+      ],
       searchAccounts: '',
     };
-    this.getAdminData();
+    if (Dashboard.isLoggedIn(Config)) {
+      this.getAdminData();
+    }
     this.setSearchAccounts = this.setSearchAccounts.bind(this);
     this.getSearchAccounts = this.getSearchAccounts.bind(this);
     this.handleEnterKeyPress = this.handleEnterKeyPress.bind(this);
@@ -252,18 +400,137 @@ export default class Dashboard extends React.Component<{}, DashboardState> {
     );
   }
 
-  render() {
+  static renderPagination() {
+    return (
+      <div className="pagination-container">
+        <div className="b2b-pagination">
+          <span className="items-count">{`1-5 ${intl.get('of')} 15`}</span>
+          <button type="button" disabled className="padination-previous" />
+          <span className="page-count">{`${intl.get('b2b-page')} 1 ${intl.get('of')} 3`}</span>
+          <button type="button" className="pagination-next" />
+        </div>
+        <Link className="b2b-link" href="/b2b">View All</Link>
+      </div>
+    );
+  }
+
+  static renderStockStatus(stock) {
+    let status;
+    let icon;
+
+    switch (stock) {
+      case 'LIMITED':
+        status = intl.get('low-stock');
+        icon = 'info';
+        break;
+      case 'OUT_OF_STOCK':
+        status = intl.get('out-of-stock');
+        icon = 'blocked';
+        break;
+      default:
+        status = intl.get('in-stock');
+        icon = 'enabled';
+    }
+    return (
+      <span>
+        <i className={`icons-status ${icon}`} />
+        {status}
+      </span>
+    );
+  }
+
+  static renderQuotesStatus(status) {
+    let icon;
+
+    switch (status) {
+      case 'Rejected':
+        icon = 'blocked';
+        break;
+      case 'In Review':
+        icon = 'info';
+        break;
+      default:
+        icon = 'enabled';
+    }
+    return (
+      <span>
+        <i className={`icons-status ${icon}`} />
+        {status}
+      </span>
+    );
+  }
+
+  renderAccounts() {
     const { history } = this.props;
+    const {
+      accounts,
+      searchAccounts,
+      showSearchLoader,
+      noSearchResults,
+    } = this.state;
+
+    return (
+      <div className="b2b-section accounts">
+        <div className="section-header">
+          <div className="section-title">{intl.get('accounts')}</div>
+          <div className="section-header-right">
+            <div className="accounts-search">
+              <input type="text" placeholder={intl.get('search')} value={searchAccounts} onKeyDown={this.handleEnterKeyPress} onChange={this.setSearchAccounts} />
+              {showSearchLoader && <div className="miniLoader" />}
+            </div>
+          </div>
+        </div>
+        <div className="section-content">
+          { !noSearchResults ? (
+            <table className="b2b-table accounts-table">
+              <thead>
+                <tr>
+                  <th className="name">
+                    {intl.get('name')}
+                    <span className="mobile-table-title">
+                      {' '}
+                    &
+                      {' '}
+                      {intl.get('external-id')}
+                    </span>
+                  </th>
+                  <th className="external-id">{intl.get('external-id')}</th>
+                  <th className="status">{intl.get('status')}</th>
+                  <th className="arrow" />
+                </tr>
+              </thead>
+              <tbody>
+                {accounts.map(account => (
+                  <tr key={account.externalId} onClick={() => { history.push(`/b2b/account/${account.uri}`); }} className="account-list-rows">
+                    <td className="name">{account.name}</td>
+                    <td className="external-id">{account.externalId}</td>
+                    <td className="status">
+                      <i className={`icons-status ${account.status.toLowerCase()}`} />
+                      {intl.get(account.status)}
+                    </td>
+                    <td className="arrow">
+                      <Link to={`/b2b/account/${account.uri}`} className="arrow-btn" />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : <p className="no-results">{intl.get('no-results-found')}</p>}
+          {!noSearchResults && Dashboard.renderPagination()}
+        </div>
+      </div>
+    );
+  }
+
+  render() {
     const {
       admins,
       defaultBillingAddress,
       defaultShippingAddress,
       recentOrders,
-      accounts,
       isLoading,
-      searchAccounts,
-      showSearchLoader,
-      noSearchResults,
+      topProducts,
+      quotes,
     } = this.state;
 
     return (
@@ -354,6 +621,76 @@ export default class Dashboard extends React.Component<{}, DashboardState> {
                 </div>
               </div>
             </div>
+            <div className="b2b-section top-products">
+              <div className="section-header">
+                <div className="section-title">{intl.get('top-products')}</div>
+                <div className="section-header-right">
+                  {/* <Link to="/">{intl.get('view-all')}</Link> */}
+                  <div className="section-header-right">
+                    {Dashboard.periodRender(intl.get('last-7-days'))}
+                  </div>
+                </div>
+              </div>
+              <div className="section-content">
+                <table className="b2b-table top-products-table">
+                  <thead>
+                    <tr>
+                      <th className="product-image" />
+                      <th className="product-name">
+                        {intl.get('product')}
+                        <span className="mobile-table-title">
+                          {' '}
+                        &
+                          {' '}
+                          {intl.get('sku')}
+                        </span>
+                      </th>
+                      <th className="product-sku">{intl.get('sku')}</th>
+                      <th className="product-units-sold">
+                        {intl.get('units-sold')}
+                        <span className="mobile-table-title">
+                          {' '}
+                        &
+                          {' '}
+                          {intl.get('stock')}
+                        </span>
+                      </th>
+                      <th className="product-stock">
+                        {intl.get('stock')}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {topProducts
+                      .sort((a, b) => b.unitsSold - a.unitsSold)
+                      .slice(0, 5)
+                      .map(product => (
+                        <tr key={product.name}>
+                          <td className="product-image">
+                            <img
+                              src={product.image}
+                              alt={product.name}
+                              onError={(e) => {
+                                const element: any = e.target;
+                                element.src = imgMissingHorizontal;
+                              }}
+                            />
+                          </td>
+                          <td className="product-name">
+                            <Link className="b2b-link" to="/b2b">{product.name}</Link>
+                          </td>
+                          <td className="product-sku">{product.sku}</td>
+                          <td className="product-units-sold">{product.unitsSold}</td>
+                          <td className="product-stock">
+                            {Dashboard.renderStockStatus(product.stock)}
+                          </td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
+                {Dashboard.renderPagination()}
+              </div>
+            </div>
             <div className="b2b-section recent-orders">
               <div className="section-header">
                 <div className="section-title">{intl.get('recent-orders')}</div>
@@ -398,59 +735,72 @@ export default class Dashboard extends React.Component<{}, DashboardState> {
                         <td className="date">{order.date}</td>
                         <td className="ship-to">{order.shipTo}</td>
                         <td className="order-total">{order.orderTotal}</td>
-                        <td className="status">{order.status}</td>
+                        <td className="status">
+                          <i className={`icons-status ${order.status === 'Complete' ? 'enabled' : 'processing'}`} />
+                          {order.status}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
+                {Dashboard.renderPagination()}
               </div>
             </div>
-            <div className="b2b-section accounts">
+            { Dashboard.isLoggedIn(Config) && this.renderAccounts() }
+            <div className="b2b-section quotes">
               <div className="section-header">
-                <div className="section-title">{intl.get('accounts')}</div>
+                <div className="section-title">{intl.get('quotes')}</div>
                 <div className="section-header-right">
-                  <div className="accounts-search">
-                    <input type="text" placeholder={intl.get('search')} value={searchAccounts} onKeyDown={this.handleEnterKeyPress} onChange={this.setSearchAccounts} />
-                    {showSearchLoader && <div className="miniLoader" />}
+                  <div className="quotes-search">
+                    <input type="text" placeholder={intl.get('search')} />
                   </div>
                 </div>
               </div>
               <div className="section-content">
-                { !noSearchResults ? (
-                  <table className="b2b-table accounts-table">
-                    <thead>
-                      <tr>
-                        <th className="name">
-                          {intl.get('name')}
-                          <span className="mobile-table-title">
-                            {' '}
-                                        &
-                            {' '}
-                            {intl.get('external-id')}
-                          </span>
-                        </th>
-                        <th className="external-id">{intl.get('external-id')}</th>
-                        <th className="status">{intl.get('status')}</th>
-                        <th className="arrow" />
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {accounts.map(account => (
-                        <tr key={account.externalId} onClick={() => { history.push(`/b2b/account/${account.uri}`); }} className="account-list-rows">
-                          <td className="name">{account.name}</td>
-                          <td className="external-id">{account.externalId}</td>
-                          <td className="status">
-                            <i className={`icons-status ${account.status.toLowerCase()}`} />
-                            {intl.get(account.status)}
+                <table className="b2b-table quotes-table">
+                  <thead>
+                    <tr>
+                      <th className="quote-id">
+                        {intl.get('quote-id')}
+                        <span className="mobile-table-title">
+                          {' '}
+                        &
+                          {' '}
+                          {intl.get('request-from')}
+                        </span>
+                      </th>
+                      <th className="quote-request-from">{intl.get('request-from')}</th>
+                      <th className="quote-submitted">
+                        {intl.get('submitted')}
+                        <span className="mobile-table-title">
+                          {' '}
+                          &
+                          {' '}
+                          {intl.get('status')}
+                        </span>
+                      </th>
+                      <th className="quote-status">
+                        {intl.get('status')}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {quotes
+                      .map(quote => (
+                        <tr key={quote.id}>
+                          <td className="quote-id">
+                            <Link className="b2b-link" to="/b2b">{quote.id}</Link>
                           </td>
-                          <td className="arrow">
-                            <Link to={`/b2b/account/${account.uri}`} className="arrow-btn" />
+                          <td className="quote-request-from">{quote.requestFrom}</td>
+                          <td className="quote-submitted">{quote.date.replace(/-/g, ' ')}</td>
+                          <td className="quote-status">
+                            {Dashboard.renderQuotesStatus(quote.status)}
                           </td>
                         </tr>
                       ))}
-                    </tbody>
-                  </table>
-                ) : <p className="no-results">{intl.get('no-results-found')}</p>}
+                  </tbody>
+                </table>
+                {Dashboard.renderPagination()}
               </div>
             </div>
           </div>
