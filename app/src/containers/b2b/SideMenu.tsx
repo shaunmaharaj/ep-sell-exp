@@ -23,18 +23,24 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import intl from 'react-intl-universal';
 import './SideMenu.less';
+import Config from '../../ep.config.json';
 
 interface SideMenuProps {
-    location: {
-        [key: string]: any,
-    },
+  location: {
+    [key: string]: any,
+  },
 }
 interface SideMenuState {
-    isOpen: boolean,
-    sideMenuItems: any,
+  isOpen: boolean,
+  sideMenuItems: any,
+  sideMenuItemAccounts: any,
 }
 
 export default class SideMenu extends React.Component<SideMenuProps, SideMenuState> {
+  static isLoggedIn(config) {
+    return (localStorage.getItem(`${config.cortexApi.scope}_oAuthRole`) === 'REGISTERED');
+  }
+
   constructor(props) {
     super(props);
 
@@ -42,12 +48,13 @@ export default class SideMenu extends React.Component<SideMenuProps, SideMenuSta
       isOpen: false,
       sideMenuItems: [
         { to: '/b2b', children: 'dashboard' },
-        // { to: '/b2b/address-book', children: 'address-book' },
-        // { to: '/b2b/orders', children: 'orders' },
-        // { to: '/b2b/approvals', children: 'approvals' },
-        // { to: '/b2b/invitations', children: 'invitations' },
-        // { to: '/b2b/requisition-lists', children: 'requisition-lists' },
-        // { to: '/b2b/quotes', children: 'quotes' },
+        { to: '/b2b/customers', children: 'customers' },
+        { to: '/b2b/orders', children: 'orders' },
+        { to: '/b2b/invoices', children: 'invoices' },
+        { to: '/b2b/quotes', children: 'quotes' },
+      ],
+      sideMenuItemAccounts: [
+        { to: '/b2b/accounts', children: 'accounts' },
       ],
     };
 
@@ -69,8 +76,12 @@ export default class SideMenu extends React.Component<SideMenuProps, SideMenuSta
 
   render() {
     const { location } = this.props;
-    const { isOpen, sideMenuItems } = this.state;
-    const currentSideMenuItems = sideMenuItems.filter(el => el.to === location.pathname);
+    const { isOpen, sideMenuItems, sideMenuItemAccounts } = this.state;
+    let sideMenuItemsDisplay = sideMenuItems;
+    if (SideMenu.isLoggedIn(Config)) {
+      sideMenuItemsDisplay = [...sideMenuItems, ...sideMenuItemAccounts];
+    }
+    const currentSideMenuItems = sideMenuItemsDisplay.filter(el => el.to === location.pathname);
     return (
       <div className="side-menu-component">
         <button
@@ -81,7 +92,7 @@ export default class SideMenu extends React.Component<SideMenuProps, SideMenuSta
           {currentSideMenuItems.length > 0 && intl.get(currentSideMenuItems[0].children)}
         </button>
         <div className={`side-menu-component-dropdown ${isOpen ? '' : 'hidden'}`}>
-          {sideMenuItems.map(elem => (
+          {sideMenuItemsDisplay.map(elem => (
             <div key={elem.children}>
               <Route
                 path={elem.to}
