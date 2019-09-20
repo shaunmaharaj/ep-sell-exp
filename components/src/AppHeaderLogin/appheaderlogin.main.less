@@ -60,8 +60,14 @@
           display: inline-block;
           width: 25px;
           height: 21px;
-          background: #ffffff00 url(../../../app/src/images/header-icons/account-icon.png) no-repeat 0px center;
+          background: #ffffff00 url(../../../app/src/images/header-icons/account-icon.png) no-repeat 0 center;
           background-size: cover;
+        }
+
+        &.using-cart {
+          &:before {
+            background: #ffffff00 url(../../../app/src/images/header-icons/profile-using-cart.svg) no-repeat 0 center;
+          }
         }
       }
     }

@@ -325,5 +325,9 @@
   "app-version": "App version",
   "components-version": "Components version",
   "barcode-scanner": "Barcode scanner",
-  "scan-barcode": "Scan Barcode"
+  "scan-barcode": "Scan Barcode",
+  "sales": "Sales",
+  "account-revenue": "Account Revenue",
+  "last-7-days": "Last 7 days",
+  "last-30-days": "Last 30 days"
 }

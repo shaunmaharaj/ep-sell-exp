@@ -69,13 +69,31 @@
       }
     }
   }
+  .sales-revenue {
+    margin-bottom: 26px;
+    width: 100%;
+    @media (min-width: @mobileWidth) {
+      display: flex;
+    }
+
+    .sales {
+      margin: 0 0 26px;
+      @media (min-width: @mobileWidth) {
+        margin: 0 20px 0 0;
+      }
+    }
+
+    .b2b-chart-img {
+      width: 100%;
+    }
+  }
   .recent-orders {
     margin-bottom: 26px;
     .section-content {
       .recent-orders-table {
         td.order-id {
-          font-weight: bold;
-          color: @firstComplimentColor;
+          color: @mainColor;
+          font-size: 13px;
         }
       }
     }
@@ -259,5 +277,46 @@
     font-size: 14px;
     padding: 10px 0;
     border-top: 1px solid #eee;
+  }
+  .period-select {
+    @icon-size: 18px;
+    position: relative;
+    margin-bottom: 10px;
+    padding-left: @icon-size;
+
+    &:before {
+      content: ' ';
+      background-image: url("../../images/icons/calendar-today-24px.svg");
+      display: block;
+      width: @icon-size;
+      height: @icon-size;
+      position: absolute;
+      left: 0;
+      top: 7px;
+      background-size: cover;
+    }
+
+    .period-select-button {
+      @padding-right: 30px;
+      padding: 6px @padding-right 6px 10px;
+      margin-left: 8px;
+      height: 32px;
+      border: 1px solid #D4D3D3;
+      border-radius: 4px;
+      color: @firstComplimentTextColor;
+
+      &:after {
+        @arrow-icon-size: 18px;
+        content: ' ';
+        background-image: url("../../images/icons/keyboard-arrow-down-24px.svg");
+        display: block;
+        width: @arrow-icon-size;
+        height: @arrow-icon-size;
+        position: absolute;
+        right: (@padding-right - @arrow-icon-size)/2;
+        top: 7px;
+        background-size: cover;
+      }
+    }
   }
 }
