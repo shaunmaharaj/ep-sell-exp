@@ -299,6 +299,8 @@
   "approvals": "Approvals",
   "invitations": "Invitations",
   "requisition-lists": "Requisition Lists",
+  "customers": "Customers",
+  "invoices": "Invoices",
   "quotes": "Quotes",
   "admin": "Admin",
   "upload-spreadsheet": "Upload spreadsheet",
@@ -325,5 +327,18 @@
   "app-version": "App version",
   "components-version": "Components version",
   "barcode-scanner": "Barcode scanner",
-  "scan-barcode": "Scan Barcode"
+  "scan-barcode": "Scan Barcode",
+  "sales": "Sales",
+  "account-revenue": "Account Revenue",
+  "last-7-days": "Last 7 days",
+  "last-30-days": "Last 30 days",
+  "top-products": "Top Products",
+  "units-sold": "Units Sold",
+  "sku": "SKU",
+  "stock": "Stock",
+  "b2b-page": "Page",
+  "low-stock": "Low Stock",
+  "quote-id": "Quote ID",
+  "request-from": "Request From",
+  "submitted": "Submitted"
 }

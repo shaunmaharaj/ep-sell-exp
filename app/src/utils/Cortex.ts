@@ -55,7 +55,7 @@ export function cortexFetch(input, init): any {
         localStorage.removeItem(`${Config.cortexApi.scope}_oAuthTokenAuthService`);
         localStorage.removeItem(`${Config.cortexApi.scope}_keycloakSessionState`);
         localStorage.removeItem(`${Config.cortexApi.scope}_keycloakCode`);
-        window.location.pathname = '/';
+        // window.location.pathname = '/';
       }
       if (res.status >= 500) {
         if (window.location.href.indexOf('/maintenance') === -1) {
@@ -92,7 +92,7 @@ export function adminFetch(input, init): any {
         localStorage.removeItem(`${Config.cortexApi.scope}_oAuthTokenAuthService`);
         localStorage.removeItem(`${Config.cortexApi.scope}_keycloakSessionState`);
         localStorage.removeItem(`${Config.cortexApi.scope}_keycloakCode`);
-        window.location.pathname = '/';
+        // window.location.pathname = '/';
       }
       if (res.status >= 500) {
         if (window.location.href.indexOf('/maintenance') === -1) {

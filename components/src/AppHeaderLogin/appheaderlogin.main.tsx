@@ -184,7 +184,7 @@ class AppHeaderLoginMain extends React.Component<AppHeaderLoginMainProps, AppHea
                   ? (
                     intl.get('account-logged-in')
                   ) : (
-                    <span className="icon" />
+                    <span className={`icon${(localStorage.getItem(`${Config.b2b.enable && Config.cortexApi.scope}_b2bCart`)) ? ' using-cart' : ''}`} />
                   )}
               </button>
               <div data-region="authMainRegion" className="auth-nav-container dropdown-menu dropdown-menu-right" aria-label="header_navbar_login_button ">

@@ -42,6 +42,9 @@ import ChangePasswordForm from './containers/ChangePasswordPage';
 import ResetPasswordForm from './containers/ResetPasswordPage';
 import B2BMain from './containers/b2b/B2BMain';
 import Dashboard from './containers/b2b/Dashboard';
+import Accounts from './containers/b2b/Accounts';
+import Quotes from './containers/b2b/Quotes';
+import Orders from './containers/b2b/Orders';
 import AccountMain from './containers/b2b/AccountMain';
 import B2BRedirect from './B2BRedirect';
 
@@ -147,28 +150,24 @@ const router = [{
       component: Dashboard,
     },
     {
-      path: '/b2b/address-book',
-      render: () => 'Address Book',
+      path: '/b2b/accounts',
+      component: Accounts,
+    },
+    {
+      path: '/b2b/customers',
+      render: () => 'Customers',
     },
     {
       path: '/b2b/orders',
-      render: () => 'Orders',
+      component: Orders,
     },
     {
-      path: '/b2b/approvals',
-      render: () => 'Approvals',
-    },
-    {
-      path: '/b2b/invitations',
-      render: () => 'Invitations',
-    },
-    {
-      path: '/b2b/requisition-lists',
-      render: () => 'Requisition Lists',
+      path: '/b2b/invoices',
+      render: () => 'Invoices',
     },
     {
       path: '/b2b/quotes',
-      render: () => 'Quotes',
+      component: Quotes,
     },
   ],
 }];

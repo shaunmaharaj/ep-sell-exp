@@ -22,6 +22,36 @@
  @import './icon-fonts.less';
  @import './common.less';
 
+.font-face(@font-family, @filepath, @font-weight, @font-style){
+  @font-face {
+    font-family: @font-family;
+    src: url("@{filepath}") format("opentype");
+    font-weight:@font-weight;
+    font-style:@font-style;
+  }
+}
+
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-Black.otf', 800, normal);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-BlackItalic.otf', 800, italic);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-Bold.otf', 700, normal);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-BoldItalic.otf', 700, italic);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-ExtraBold.otf', 750, normal);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-ExtraBoldItalic.otf', 750, italic);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-Heavy.otf', 900, normal);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-HeavyItalic.otf', 900, italic);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-Light.otf', 300, normal);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-LightItalic.otf', 300, italic);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-Medium.otf', 500, normal);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-MediumItalic.otf', 500, italic);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-Regular.otf', normal, normal);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-RegularItalic.otf', normal, italic);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-SemiBold.otf', 600, normal);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-SemiBoldItalic.otf', 600, italic);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-Thin.otf', 100, normal);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-ThinItalic.otf', 100, italic);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-UltraLight.otf', 200, normal);
+.font-face('Gilroy', 'fonts/Gilroy/Gilroy-UltraLightItalic.otf', 200, italic);
+
  html {
    height: 100%;
    font-family: sans-serif;
