@@ -219,6 +219,7 @@
    background-color: @mainBackgroundColor;
    border: 1px solid @firstComplimentColor;
    color: @firstComplimentColor;
+   border-radius: 24px;
    cursor: pointer;
 
    &:hover {
@@ -227,6 +228,7 @@
    }
 
    &:focus {
+    background-color: @firstComplimentColor;
      outline: 2px solid #007bff80;
    }
 
@@ -250,9 +252,13 @@
    }
 
    &.primary {
-     border: 0;
-     color: @mainBackgroundColor;
-     background-color: @firstComplimentColor;
+     color: @firstComplimentColor;
+     background-color: @mainBackgroundColor;
+
+     &:hover {
+      background-color: @firstComplimentColor;
+      color: @mainBackgroundColor;
+    }
 
      &:focus {
        outline: 2px solid #007bff80;
@@ -265,7 +271,12 @@
      &:disabled {
        cursor: default;
        background-color: lighten(@firstComplimentColor, 25%);
+       color: @mainBackgroundColor;
        outline: 0;
+       &:hover {
+        background-color: lighten(@firstComplimentColor, 25%);
+        color: @mainBackgroundColor;
+      }
      }
    }
 
