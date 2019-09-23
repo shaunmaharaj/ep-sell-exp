@@ -236,34 +236,34 @@ export default class Dashboard extends React.Component<{}, DashboardState> {
       admins: [],
       quotes: [
         {
-          id: '118344715-9',
-          requestFrom: 'Accelsmart',
-          date: '27-Aug-2019',
-          status: 'Submitted',
-        },
-        {
           id: '664035490-X',
           requestFrom: 'Bluefuse',
           date: '16-Sep-2019',
           status: 'Submitted',
         },
         {
-          id: '796998895-4',
-          requestFrom: 'Cabana',
-          date: '09-Sep-2019',
-          status: 'In Review',
-        },
-        {
           id: '753193924-X',
           requestFrom: 'Clevermatic',
           date: '10-Sep-2019',
-          status: 'Accepted',
+          status: 'Submitted',
+        },
+        {
+          id: '796998895-4',
+          requestFrom: 'Cabana',
+          date: '09-Sep-2019',
+          status: 'Submitted',
+        },
+        {
+          id: '118344715-9',
+          requestFrom: 'Accelsmart',
+          date: '27-Aug-2019',
+          status: 'Submitted',
         },
         {
           id: '282511554-1',
           requestFrom: 'Forexo',
           date: '11-Mar-2018',
-          status: 'Rejected',
+          status: 'Submitted',
         },
       ],
       searchAccounts: '',
