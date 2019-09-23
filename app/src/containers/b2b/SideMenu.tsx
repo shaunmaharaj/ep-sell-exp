@@ -48,7 +48,7 @@ export default class SideMenu extends React.Component<SideMenuProps, SideMenuSta
       isOpen: false,
       sideMenuItems: [
         { to: '/b2b', children: 'dashboard' },
-        { to: '/b2b/customers', children: 'customers' },
+        // { to: '/b2b/customers', children: 'customers' },
         { to: '/b2b/orders', children: 'orders' },
         { to: '/b2b/invoices', children: 'invoices' },
         { to: '/b2b/quotes', children: 'quotes' },

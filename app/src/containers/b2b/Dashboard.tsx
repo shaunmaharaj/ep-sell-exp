@@ -27,6 +27,7 @@ import { adminFetch } from '../../utils/Cortex';
 import { login } from '../../utils/AuthService';
 import userIcon from '../../images/header-icons/account-icon-blue.svg';
 import salesChart from '../../images/b2b-mock/sales.png';
+import invoicesChart from '../../images/b2b-mock/invoices.png';
 import accountRevenueChart from '../../images/b2b-mock/account-revenue.png';
 import imgMissingHorizontal from '../../images/img_missing_horizontal@2x.png';
 import Config from '../../ep.config.json';
@@ -140,11 +141,11 @@ export default class Dashboard extends React.Component<{}, DashboardState> {
           image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/34996.png',
         },
         {
-          sku: 392455606866,
+          sku: 37373,
           unitsSold: 1669,
           stock: 'LIMITED',
-          name: 'Spoiler',
-          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/46009.png',
+          name: 'Universal Mobile Connector',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/37373.png',
         },
         {
           sku: 337368575087,
@@ -168,11 +169,11 @@ export default class Dashboard extends React.Component<{}, DashboardState> {
           image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/37942.png',
         },
         {
-          sku: 350921932045,
+          sku: 59410,
           unitsSold: 1631,
           stock: 'AVAILABLE',
-          name: 'Hood Panels',
-          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/38186.png',
+          name: 'Dual Corded Wall Charger',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/59410.png',
         },
         {
           sku: 366651865967,
@@ -196,11 +197,11 @@ export default class Dashboard extends React.Component<{}, DashboardState> {
           image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/21458.png',
         },
         {
-          sku: 352573925795,
+          sku: 16561,
           unitsSold: 1840,
           stock: 'AVAILABLE',
-          name: '407 Unlimited Use',
-          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/13350.png',
+          name: 'Cable Organizer',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/16561.png',
         },
         {
           sku: 386731979879,
@@ -217,18 +218,18 @@ export default class Dashboard extends React.Component<{}, DashboardState> {
           image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/97128.png',
         },
         {
-          sku: 337593514379,
+          sku: 52193,
           unitsSold: 1958,
           stock: 'AVAILABLE',
-          name: 'B10 SD Multi-purpose Van',
-          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/40003.png',
+          name: 'Corded Wall Charger',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/52193.png',
         },
         {
-          sku: 377912830857,
+          sku: 48757,
           unitsSold: 1639,
           stock: 'OUT_OF_STOCK',
-          name: 'M-Class Sports Coupe',
-          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/10008.png',
+          name: 'Ice Guard IG52C',
+          image: 'https://elasticpath-demo-images.s3-us-west-2.amazonaws.com/VESTRI_VIRTUAL_V2/48757.png',
         },
       ],
       accounts: [],
@@ -801,6 +802,19 @@ export default class Dashboard extends React.Component<{}, DashboardState> {
                   </tbody>
                 </table>
                 {Dashboard.renderPagination()}
+              </div>
+            </div>
+            <div className="invoice-revenue">
+              <div className="b2b-section section-1 invoices">
+                <div className="section-header">
+                  <div className="section-title">{intl.get('invoices')}</div>
+                  <div className="section-header-right">
+                    {Dashboard.periodRender(intl.get('last-7-days'))}
+                  </div>
+                </div>
+                <div className="section-content">
+                  <img className="b2b-chart-img" src={invoicesChart} alt="Sales Chart" />
+                </div>
               </div>
             </div>
           </div>
