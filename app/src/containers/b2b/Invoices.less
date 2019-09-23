@@ -1,6 +1,25 @@
 @import './../../theme/common.less';
 
-.dashboard-component {
+.Invoices-component {
+  .invoice-revenue {
+    margin-bottom: 26px;
+    width: 100%;
+    @media (min-width: @mobileWidth) {
+      display: flex;
+    }
+
+    .invoices {
+      margin: 0 0 26px;
+      @media (min-width: @mobileWidth) {
+        margin: 0 0 0 0;
+      }
+    }
+
+    .b2b-chart-img {
+      width: 100%;
+      max-width: 450px;
+    }
+  }
   .admin-address-book {
     width: 100%;
     margin-bottom: 26px;
@@ -87,25 +106,6 @@
       width: 100%;
     }
   }
-  .invoice-revenue {
-    margin-bottom: 26px;
-    width: 100%;
-    @media (min-width: @mobileWidth) {
-      display: flex;
-    }
-
-    .invoices {
-      margin: 0 0 26px;
-      @media (min-width: @mobileWidth) {
-        margin: 0 0 0 0;
-      }
-    }
-
-    .b2b-chart-img {
-      width: 100%;
-      max-width: 450px;
-    }
-  }
   .recent-orders {
     margin-bottom: 26px;
     .section-content {
@@ -117,9 +117,9 @@
       }
     }
   }
-  .quotes {
+  .Invoices {
     margin-bottom: 100px;
-    .quotes-table {
+    .Invoices-table {
       .mobile-table-title {
         display: none;
       }
@@ -147,7 +147,7 @@
       }
     }
   }
-  .accounts, .quotes {
+  .accounts, .Invoices {
     margin-bottom: 26px;
     .section-header {
       align-items: center;
@@ -340,7 +340,7 @@
       }
     }
   }
-  .accounts-search, .quotes-search {
+  .accounts-search, .Invoices-search {
     position: relative;
     margin-bottom: 10px;
     input {

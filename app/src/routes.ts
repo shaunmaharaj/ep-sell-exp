@@ -45,6 +45,7 @@ import Dashboard from './containers/b2b/Dashboard';
 import Accounts from './containers/b2b/Accounts';
 import Quotes from './containers/b2b/Quotes';
 import Orders from './containers/b2b/Orders';
+import Invoices from './containers/b2b/Invoices';
 import AccountMain from './containers/b2b/AccountMain';
 import B2BRedirect from './B2BRedirect';
 
@@ -163,7 +164,7 @@ const router = [{
     },
     {
       path: '/b2b/invoices',
-      render: () => 'Invoices',
+      component: Invoices,
     },
     {
       path: '/b2b/quotes',
