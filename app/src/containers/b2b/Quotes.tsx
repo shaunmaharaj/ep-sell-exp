@@ -80,31 +80,31 @@ export default class Quotes extends React.Component<{}, QuotesState> {
           id: '664035490-X',
           requestFrom: 'Bluefuse',
           date: '16-Sep-2019',
-          status: 'Submitted',
+          status: 'Accepted',
         },
         {
           id: '753193924-X',
           requestFrom: 'Clevermatic',
           date: '10-Sep-2019',
-          status: 'Submitted',
+          status: 'Accepted',
         },
         {
           id: '796998895-4',
           requestFrom: 'Cabana',
           date: '09-Sep-2019',
-          status: 'Submitted',
+          status: 'Accepted',
         },
         {
           id: '118344715-9',
           requestFrom: 'Accelsmart',
           date: '27-Aug-2019',
-          status: 'Submitted',
+          status: 'Accepted',
         },
         {
           id: '282511554-1',
           requestFrom: 'Forexo',
           date: '11-Mar-2018',
-          status: 'Submitted',
+          status: 'Accepted',
         },
       ],
     };
@@ -210,7 +210,7 @@ export default class Quotes extends React.Component<{}, QuotesState> {
                     </th>
                     <th className="quote-request-from">{intl.get('request-from')}</th>
                     <th className="quote-submitted">
-                      {intl.get('submitted')}
+                      {intl.get('accepted')}
                       <span className="mobile-table-title">
                         {' '}
                         &
