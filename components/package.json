@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@storybook/react": "^5.1.8",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.3.0",
     "declaration-bundler-webpack-plugin": "^1.0.3",
     "quagga": "^0.12.1",
     "react-dev-utils": "^9.0.1",
